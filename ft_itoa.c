@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 23:42:26 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/28 13:51:10 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 04:23:27 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,67 @@
 
 #include "libft.h"
 
+void	*min(int n)
+{
+	char	*str;
+
+	if (n == 0)
+	{
+		str = malloc(2);
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, "0", 2);
+		return (str);
+	}
+	else
+	{
+		str = malloc(12);
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, "-2147483648", 12);
+		return (str);
+	}
+}
+
+int	tempo(int n, int len, int temp)
+{
+	if (n <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (temp)
+	{
+		len++;
+		temp /= 10;
+	}
+	return (len);
+}
+
+char	*string(char *str, int len)
+{
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	return (str);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
 	int		temp;
 
+	str = NULL;
+	len = 0;
 	temp = n;
-	len = (n <= 0) ? 1 : 0;
-	while (temp)
-	{
-		len++;
-		temp /= 10;
-	}
-	str = malloc(len + 1);
+	if (n == -2147483648 || n == 0)
+		return (min(n));
+	len = tempo(n, len, temp);
+	str = string(str, len);
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	if (n == 0)
-		str[0] = '0';
-	else if (n < 0)
+	if (n < 0 && n != -2147483648 && n != 0)
 	{
 		str[0] = '-';
 		n = -n;

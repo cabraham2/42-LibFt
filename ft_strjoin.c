@@ -6,57 +6,37 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 13:49:19 by cabraham          #+#    #+#             */
-/*   Updated: 2024/10/28 19:52:59 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 02:34:18 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * This function calculates the factorial of a given number.
+ *
+ * @param n The number for which the factorial is to be calculated.
+ * @return The factorial of the given number.
+ *
+ * The function uses a recursive approach to calculate the factorial.
+ * If the input number is less than 0,
+ * the function returns -1 to indicate an error.
+ */
+
 #include "libft.h"
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dest;
-	int		i;
-	int		j;
+	size_t	len1;
+	size_t	len2;
+	char	*result;
 
-	i = 0;
-	j = 0;
-	while (i < size)
-		j += ft_strlen(strs[i++]);
-	if (size > 0)
-		j += (size - 1) * ft_strlen(sep);
-	dest = malloc((j + 1) * sizeof(char));
-	if (!dest)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (i < size)
-	{
-		ft_strcpy(dest + j, strs[i]);
-		j += ft_strlen(strs[i]);
-		if (++i < size)
-			j += dest + j + ft_strlen(sep) - ft_strcpy(dest + j, sep);
-	}
-	dest[j] = '\0';
-	return (dest);
+	result = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!result)
+		return (NULL);
+	ft_strlcpy(result, s1, len1 + 1);
+	ft_strlcat(result, s2, len1 + len2 + 1);
+	return (result);
 }
-
-/* int	main(void)
-{
-	char 	*strs[] = {"toi", "moi", "eux", "tous ceux qui le veulent"};
-	int		size = 4;
-	char	*sep = " + ";
- 
-	char	*result = ft_strjoin(size, strs, sep);
- 
-	if (result == NULL)
-	{
-		printf("maloc NUL\n");
-		return 1;
-	}
- 
-	printf("Result: %s\n", result);
- 
-	free(result);
- 
-	return 0;
-} */

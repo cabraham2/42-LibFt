@@ -53,6 +53,7 @@ SRCS        := ft_isdigit.c \
                ft_isupper.c \
                ft_isprint.c \
                ft_isascii.c \
+               ft_isspace.c \
                ft_strjoin.c \
                ft_split.c \
                ft_toupper.c \

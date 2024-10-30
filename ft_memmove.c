@@ -6,11 +6,21 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:11:17 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/28 16:25:13 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 04:45:40 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	*nsupzero(size_t n, unsigned char *destination, unsigned char *source)
+{
+	while (n > 0)
+	{
+		n--;
+		destination[n] = source[n];
+	}
+	return (destination);
+}
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -19,15 +29,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	destination = (unsigned char *)dest;
 	source = (unsigned char *)src;
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	if (destination > source && destination < source + n)
 	{
-		while (n > 0)
-		{
-			n--;
-			destination[n] = source[n];
-		}
+		destination = nsupzero(n, destination, source);
 	}
 	else
 	{

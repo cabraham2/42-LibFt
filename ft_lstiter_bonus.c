@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 19:31:26 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/28 21:21:00 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 02:33:55 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
  * @return The factorial of the given number.
  *
  * This function uses a recursive approach to calculate the factorial.
- * If the input number is less than 0, the function returns -1 to indicate an error.
+ * If the input number is less than 0, 
+ * the function returns -1 to indicate an error.
  */
 
 #include "libft.h"

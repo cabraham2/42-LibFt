@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:11:14 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/28 14:14:40 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 04:28:34 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	test = (unsigned char *)dest;
 	teste = (unsigned char *)src;
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	while (n > 0)
 	{

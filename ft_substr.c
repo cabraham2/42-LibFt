@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 19:47:45 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/28 14:15:21 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 02:46:41 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@
 
 #include "libft.h"
 
+void	*startpluslongeur(char *newstring, char const *s, size_t x)
+{
+	newstring = malloc(1);
+	if (!newstring || s == NULL)
+		return (NULL);
+	return (newstring[x] = '\0', newstring);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*newstring;
@@ -38,17 +46,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		star;
 	size_t	x;
 
+	newstring = NULL;
 	string = (char *)s;
 	longeur = (len + start);
 	star = start;
 	x = 0;
 	if (star >= ft_strlen(string))
-	{
-		newstring = malloc(1);
-		if (!newstring || s == NULL)
-			return (NULL);
-		return (newstring[x] = '\0', newstring);
-	}
+		return (startpluslongeur(newstring, s, x));
 	if (longeur > ft_strlen(string))
 		len = ft_strlen(string) - start;
 	newstring = malloc(len + 1);

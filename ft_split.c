@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 22:32:41 by cabraham          #+#    #+#             */
-/*   Updated: 2024/10/28 16:48:03 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 04:18:18 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	is_separator(char c, char *charset)
-{
-	while (*charset)
-	{
-		if (c == *charset)
-			return (1);
-		charset++;
-	}
-	return (0);
-}
-
-int	ft_count_word(char *str, char *charset)
+int	ft_count_word(const char *str, char sep)
 {
 	int	i;
 	int	count;
@@ -34,74 +23,60 @@ int	ft_count_word(char *str, char *charset)
 	count = 0;
 	while (str[i])
 	{
-		while (is_separator(str[i], charset) && str[i])
+		while (str[i] == sep)
 			i++;
-		if (!is_separator(str[i], charset) && str[i])
+		if (str[i] && str[i] != sep)
 			count++;
-		while (!is_separator(str[i], charset) && str[i])
+		while (str[i] && str[i] != sep)
 			i++;
 	}
 	return (count);
 }
 
-char	*ft_strdupn(char *src, int n)
+// Duplique une sous-chaîne de longueur n.
+char	*ft_strdupn(const char *src, int n)
 {
 	char	*create;
 	int		i;
-	int		x;
 
-	x = 0;
-	i = 0;
-	while (src[i])
-		i++;
 	create = malloc((n + 1) * sizeof(char));
 	if (!create)
 		return (NULL);
-	while (x < n && src[x])
+	i = 0;
+	while (i < n && src[i])
 	{
-		create[x] = src[x];
-		x++;
+		create[i] = src[i];
+		i++;
 	}
-	create[n] = '\0';
+	create[i] = '\0';
 	return (create);
 }
 
-int	checker(char *str, char *charset, int *j, char ***output)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	len = 0;
-	while (str[i] && *j < ft_count_word(str, charset))
-	{
-		while (str[i] && is_separator(str[i], charset))
-			i++;
-		while (str[i] && !is_separator(str[i], charset))
-		{
-			len++;
-			i++;
-		}
-		if (len > 0)
-		{
-			(*output)[*j] = ft_strdupn(str + i - len, len);
-			(*j)++;
-			len = 0;
-		}
-	}
-	return (0);
-}
-
-char	**ft_split(char *str, char *charset)
+// Fonction principale pour diviser la chaîne en fonction du séparateur.
+char	**ft_split(char const *s, char c)
 {
 	char	**output;
+	int		i;
 	int		j;
+	int		start;
 
-	j = 0;
-	output = malloc((ft_count_word(str, charset) + 1) * sizeof(char *));
+	if (!s)
+		return (NULL);
+	output = malloc((ft_count_word(s, c) + 1) * sizeof(char *));
 	if (!output)
 		return (NULL);
-	checker(str, charset, &j, &output);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+			output[j++] = ft_strdupn(s + start, i - start);
+	}
 	output[j] = NULL;
 	return (output);
 }

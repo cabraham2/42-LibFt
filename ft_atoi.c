@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 01:05:11 by cabraham          #+#    #+#             */
-/*   Updated: 2024/10/28 16:50:19 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/10/30 03:31:33 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,12 @@ int	ft_atoi(char *str)
 	nb = 0;
 	i = 0;
 	signe = 1;
-	while (str[i] < 32 || str[i] == ' ')
-	{
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	}
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '+')
-			return (0);
 		if (str[i] == '-')
-		{
 			signe *= -1;
-		}
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -48,4 +42,4 @@ int main(void)
 {
 	char *texte = "   ---+--+1234qwert";
 	printf("%i", ft_atoi(texte));
-} */
+}  */
