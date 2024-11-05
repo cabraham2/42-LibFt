@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:15:39 by clementabra       #+#    #+#             */
-/*   Updated: 2024/11/01 17:04:54 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/05 21:50:28 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ typedef struct s_list
 
 ///--------------------- IS SOMETHING ---------------------
 int				ft_isdigit(int nb);
-int				ft_islower(int nb);
-int				ft_isupper(int nb);
+//int				ft_islower(int nb);
+//int				ft_isupper(int nb);
 int				ft_isalnum(int nb);
 int				ft_isalpha(int nb);
 int				ft_isprint(int nb);
 int				ft_isascii(int nb);
-int				ft_isspace(int nb);
+//int				ft_isspace(int nb);
 
 int				ft_tolower(int nb);
 int				ft_toupper(int nb);
 
 ///--------------------- PERSONAL ---------------------
 int				ft_strlen(char const *str);
-char			*ft_strcpy(char *dest, char *src);
+//char			*ft_strcpy(char *dest, char *src);
 
 ///--------------------- STRING ---------------------
 char			*ft_strnstr(char *str, char *to_find, size_t len);

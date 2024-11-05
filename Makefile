@@ -46,19 +46,20 @@ SRCS        := ft_isdigit.c \
                ft_strncmp.c \
                ft_strdup.c \
                ft_strlcat.c \
-               ft_strcpy.c \
                ft_isalnum.c \
                ft_isalpha.c \
-               ft_islower.c \
-               ft_isupper.c \
                ft_isprint.c \
                ft_isascii.c \
-               ft_isspace.c \
                ft_strjoin.c \
                ft_split.c \
                ft_toupper.c \
                ft_tolower.c \
                ft_strlcpy.c
+
+#              ft_strcpy.c \
+#              ft_islower.c \
+#              ft_isupper.c \
+#              ft_isspace.c \
 
 # Liste des fichiers sources pour les bonus
 SRCS_BONUS  := ft_lstnew_bonus.c \
