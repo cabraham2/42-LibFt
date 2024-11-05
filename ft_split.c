@@ -6,15 +6,13 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 22:32:41 by cabraham          #+#    #+#             */
-/*   Updated: 2024/10/30 04:18:18 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/05 21:54:05 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-int	ft_count_word(const char *str, char sep)
+static int	ft_count_word(const char *str, char sep)
 {
 	int	i;
 	int	count;
@@ -34,7 +32,7 @@ int	ft_count_word(const char *str, char sep)
 }
 
 // Duplique une sous-chaîne de longueur n.
-char	*ft_strdupn(const char *src, int n)
+static char	*ft_strdupn(const char *src, int n)
 {
 	char	*create;
 	int		i;

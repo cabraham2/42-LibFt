@@ -6,13 +6,13 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:11:17 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/30 04:45:40 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/05 21:58:48 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*nsupzero(size_t n, unsigned char *destination, unsigned char *source)
+static void	*nsuro(size_t n, unsigned char *destination, unsigned char *source)
 {
 	while (n > 0)
 	{
@@ -33,7 +33,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (NULL);
 	if (destination > source && destination < source + n)
 	{
-		destination = nsupzero(n, destination, source);
+		destination = nsuro(n, destination, source);
 	}
 	else
 	{

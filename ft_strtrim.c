@@ -6,11 +6,9 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:02:06 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/28 14:15:40 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/05 22:04:08 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /**
  * Cette fonction prend un caractère 'c' et une chaîne de caractères 'set', et
@@ -26,7 +24,7 @@
 
 #include "libft.h"
 
-int	ft_is_in_set(char c, char const *set)
+static int	ft_is_in_set(char c, char const *set)
 {
 	while (*set)
 	{

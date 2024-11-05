@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 23:42:26 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/30 04:23:27 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/05 21:52:22 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 #include "libft.h"
 
-void	*min(int n)
+static void	*min(int n)
 {
 	char	*str;
 
@@ -48,7 +48,7 @@ void	*min(int n)
 	}
 }
 
-int	tempo(int n, int len, int temp)
+static int	tempo(int n, int len, int temp)
 {
 	if (n <= 0)
 		len = 1;
@@ -62,7 +62,7 @@ int	tempo(int n, int len, int temp)
 	return (len);
 }
 
-char	*string(char *str, int len)
+static char	*string(char *str, int len)
 {
 	str = malloc(len + 1);
 	if (!str)
