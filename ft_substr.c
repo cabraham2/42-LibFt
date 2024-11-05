@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 19:47:45 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/30 02:46:41 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/01 17:08:13 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,32 @@
 
 #include "libft.h"
 
-void	*startpluslongeur(char *newstring, char const *s, size_t x)
-{
-	newstring = malloc(1);
-	if (!newstring || s == NULL)
-		return (NULL);
-	return (newstring[x] = '\0', newstring);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*newstring;
-	char	*string;
-	int		longeur;
-	int		star;
-	size_t	x;
+	char	*sub_str;
+	size_t	i;
+	size_t	k;
 
-	newstring = NULL;
-	string = (char *)s;
-	longeur = (len + start);
-	star = start;
-	x = 0;
-	if (star >= ft_strlen(string))
-		return (startpluslongeur(newstring, s, x));
-	if (longeur > ft_strlen(string))
-		len = ft_strlen(string) - start;
-	newstring = malloc(len + 1);
-	if (!newstring || s == NULL)
+	if (start >= (unsigned int)ft_strlen((char *)s))
+		return (ft_strdup(""));
+	if (len > ft_strlen((char *)s) - start)
+		len = ft_strlen((char *)s) - start;
+	sub_str = malloc((len + 1) * sizeof(char));
+	if (!sub_str || !s)
 		return (NULL);
-	while (len > 0)
+	i = 0;
+	k = 0;
+	while (s[i] != '\0')
 	{
-		newstring[x] = string[start + x];
-		len--;
-		x++;
+		if (i >= start && k < len)
+		{
+			sub_str[k] = s[i];
+			k++;
+		}
+		i++;
 	}
-	return (newstring[x] = '\0', newstring);
+	sub_str[k] = '\0';
+	return (sub_str);
 }
 
 /* 

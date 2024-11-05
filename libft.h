@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:15:39 by clementabra       #+#    #+#             */
-/*   Updated: 2024/10/30 03:31:46 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/01 17:04:54 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char			*ft_itoa(int n);
 
 char			*ft_strdup(char *src);
 int				ft_strncmp(const char *s1, const char *s2, unsigned int n);
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 
 ///--------------------- BONUS ---------------------
 void			ft_lstadd_back(t_list **lst, t_list *new);
